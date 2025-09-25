@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Dobby Crypto Analyzer",
+  "version": "1.0",
+  "description": "Right-click any crypto token for instant Dobby-powered analysis",
+  "permissions": ["contextMenus", "activeTab", "scripting", "notifications", "storage", "tabs"],
+  "host_permissions": [
+    "https://api.coingecko.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Analyze with Dobby"
+  },
+"content_scripts": [
+  {
+    "matches": ["<all_urls>"],
+    "js": ["content.js"],
+    "run_at": "document_end"
+  }
+],
+  "icons": {
+    "16": "icon16.svg",
+    "48": "icon48.svg",
+    "128": "icon128.svg"
+  }
+}
